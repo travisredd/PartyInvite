@@ -6,20 +6,18 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width"/>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <title>My View</title>
+
+
 </head>
 <body>
-    <div>
-        <h1>Hello MVC (from the view)</h1>
+    <div class="text-center">
+        <h3>We're going to have an exciting party!</h3>
+        <h4>And you are invited</h4>
+        <a class="btn btn-primary" asp-action="RsvpForm">RSVP Now</a>
 
-    </div>
-    <div>
-        @ViewBag.Greeting World! (from the view)
-        <p>We're going to have an exciting party.<br/>
-        (To do: sell it better. Add pictures of something.)
-        </p>
-        <a asp-action="RsvpForm">RSVP Now</a>
     </div>
 </body>
 </html>

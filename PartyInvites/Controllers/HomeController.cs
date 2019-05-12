@@ -18,9 +18,25 @@ namespace PartyInvites.Controllers
             return View("MyView");
         }
 
+        [HttpGet]
         public ViewResult RsvpForm()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ViewResult RsvpForm(GuestResponse guestResponse)
+        {
+            if (ModelState.IsValid)
+            {
+                Repository.AddResponse(guestResponse);
+                return View("Thanks", guestResponse);
+            }
+            else
+            {
+                //there is a validation error
+                return View();
+            }
         }
 
         public IActionResult About()
@@ -30,22 +46,11 @@ namespace PartyInvites.Controllers
             return View();
         }
 
-        public IActionResult Contact()
+        public ViewResult ListResponses()
         {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
+            return View(Repository.Responses.Where(r => r.WillAttend == true));
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
     }
 }
