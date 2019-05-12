@@ -6,6 +6,7 @@
 
 <html>
 <head>
+    <meta name="viewport" content="width=device-width"/>
     <title>My View</title>
 </head>
 <body>
@@ -15,6 +16,10 @@
     </div>
     <div>
         @ViewBag.Greeting World! (from the view)
+        <p>We're going to have an exciting party.<br/>
+        (To do: sell it better. Add pictures of something.)
+        </p>
+        <a asp-action="RsvpForm">RSVP Now</a>
     </div>
 </body>
 </html>
